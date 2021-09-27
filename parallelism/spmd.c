@@ -3,15 +3,15 @@
 
 /*global vars */
 static long NUM_STEPS = 100000;
-double interval;
+double step;
 #define NUM_THREADS 100000
 
 void main() {
   int i, nTHREADS_shared;
   double pi, sum[NUM_THREADS]; // promote scalar to an array dimensioned by
                                // number of threads to avoid race condition.
-  interval = 1.0 / (double)NUM_STEPS;
-  printf("interval=%f\n", interval);
+  step = 1.0 / (double)NUM_STEPS;
+  printf("step=%f\n", step);
 
   /*omp_set_num_threads(NUM_THREADS); // set the number of threads =2*/
 
@@ -36,14 +36,14 @@ void main() {
     int start = id * NUM_THREADS / nTHREADS;
     int stop = (id + 1) * NUM_THREADS / nTHREADS;
     for (i = start, sum[id] = 0.0; i < stop; i++){
-      x = (i + 0.5) * interval;
+      x = (i + 0.5) * step;
       sum[id] += 4.0 / (1.0 + x * x);
     } // This is a common trick in SPMD programs to create  a cyclic
       // distribution of loop iterations.
   }
 
   for (i = 0, pi = 0.0; i < nTHREADS_shared; i++) {
-    pi += sum[i] * interval;
+    pi += sum[i] * step;
   }
 
   printf("\nresult:\npi=%f\n", pi);
