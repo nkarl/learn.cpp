@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-typedef unsigned long long BigInt;  // alias for BigInteger
+typedef unsigned long long BigInt; // alias for BigInteger
 
 BigInt get_posValueRecursive(int, BigInt, BigInt);
 BigInt get_posValueFor(int);
@@ -22,7 +22,8 @@ int main(int argc, char *argv[], char *env[]) {
 
   cout << endl << "out: ";
   for (int i = 1; i < argc; ++i) {
-    int n = strtoull(argv[i], NULL, 10);
+    int n = strtoull(argv[i], NULL,
+                     10); // convert string content to (big) integer value
     cout << setw(5) << get_posValueRecursive(n, 0, 1);
   }
 
@@ -105,14 +106,14 @@ BigInt get_posValueRecursive(int n, BigInt curr, BigInt next) {
     IMPLEMENTATION: ITERATIVE (FOR LOOP)
 */
 BigInt get_posValueFor(int n) {
-  BigInt result  = 0;
+  BigInt result = 0;
   BigInt current = 0;
-  BigInt next    = 1;
+  BigInt next = 1;
 
   for (int i = 0; i <= n; ++i) {
-    result  = current;
+    result = current;
     current = next;
-    next    = result + current;
+    next = result + current;
   }
 
   return result;
