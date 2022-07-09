@@ -18,22 +18,14 @@ void print(vector<int>& nums, int key) {
 int binary_search(vector<int>&, int);
 int search(vector<int>&, int);
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
 
-    vector<int> nums = { -1, 0, 2, 5, 9, 11 };
-    //vector<int> nums = { -1, 0, 3, 5, 9, 12 };
+    //vector<int> nums = { -1, 0, 2, 5, 9, 11 };
+    vector<int> nums = { -1, 0, 3, 5, 9, 12 };
     int key = 5;
 
-    for (auto i : nums) {
-        cout << i << ' ';
-    }
-    cout << endl;
-
-    int res = search(nums, key);
+    auto res = binary_search(nums, key);
     cout << "key index: " << res << endl;
-    //cout << endl;
-    //cout << typeid(nums).name() << endl;
-
     return 0;
 }
 
@@ -59,9 +51,18 @@ int search(vector<int>& nums, int key) {
         int cmp = (key < nums[mid]) ? -1
                 : (key > nums[mid]) ? 1
                 : 0;
-        if (cmp < 0) tail = mid - 1;
-        else if (cmp > 0) head = mid + 1;
-        else return mid;
+        //int cmp = (nums[mid] < key) ? -1
+                //: (nums[mid] > key) ? 1
+                //: 0;
+        if      (cmp < 0 ) tail = mid - 1;
+        else if (cmp > 0 ) head = mid + 1;
+        else {
+            cout << "break out mid: " << mid;
+            result = mid;
+            break;
+        }
     }
-    return -1;
+
+    cout << "result: " << result << endl;
+    return result;
 }
