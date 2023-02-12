@@ -1,0 +1,3 @@
+[submodule "proc-management/good-shit-bad-shit"]
+	path = proc-management/good-shit-bad-shit
+	url = https://github.com/nkarl/proc-mgmt-good-shit-bad-shit
