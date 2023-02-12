@@ -1,0 +1,11 @@
+﻿  Module.ixx
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\Module.ixx(1,1): error C3378: a declaration can be exported only from a module interface unit
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\Module.ixx(1,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\Module.ixx(1,15): error C2146: syntax error: missing ';' before identifier 'Example'
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\Module.ixx(11,2): error C3378: a declaration can be exported only from a module interface unit
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\Module.ixx(12,3): error C2143: syntax error: missing ';' before 'return'
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\Module.ixx(12,3): error C2059: syntax error: 'return'
+  MSVC-Test-Modules.cpp
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\MSVC-Test-Modules.cpp(5,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\KARL\Dev\test.LAB\learn.cpp\snippets\modules-cpp2a\MSVC-Test-Modules\MSVC-Test-Modules\MSVC-Test-Modules.cpp(5,8): error C2146: syntax error: missing ';' before identifier 'Module'
+  Generating Code...

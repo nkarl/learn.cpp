@@ -1,0 +1,9 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\karl\\dev\\test.lab\\learn.cpp\\snippets\\modules-cpp2a\\mymodularprogram\\mymodularprogram\\example.ixx",
+        "ProvidedModule": "Example",
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

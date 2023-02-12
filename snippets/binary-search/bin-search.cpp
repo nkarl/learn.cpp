@@ -7,7 +7,7 @@ using std::vector;
 using std::cout;
 using std::endl;
 
-void print(vector<int>& nums, int key) {
+int print(vector<int>& nums, int key) {
     for (auto i : nums)
         cout << i << ' ';
 
@@ -18,7 +18,7 @@ void print(vector<int>& nums, int key) {
 int binary_search(vector<int>&, int);
 int search(vector<int>&, int);
 
-int main(int argc, char *argv[]) {
+auto main(int argc, char *argv[]) -> int {
 
     //vector<int> nums = { -1, 0, 2, 5, 9, 11 };
     vector<int> nums = { -1, 0, 3, 5, 9, 12 };
