@@ -17,19 +17,21 @@ struct bits {
     unsigned int lastbit    : 1;
 } var;
 
+typedef unsigned char u8;
+
 int main() {
     struct bits myBits;
     myBits.bit0 = 1;
     myBits.bit123 = 5;
     myBits.otherbits = 53;
     myBits.lastbit = 0;
-    print_byte(myBits.bit0);
-    print_byte(myBits.bit123);
-    print_byte(myBits.otherbits);
-    print_byte(myBits.lastbit);
-    /*printf("%x\n", myBits.bit0);*/
-    /*printf("%x\n", myBits.bit123);*/
-    /*printf("%x\n", myBits.otherbits);*/
-    /*printf("%x\n", myBits.lastbit);*/
+    /*print_byte(myBits.bit0);*/
+    /*print_byte(myBits.bit123);*/
+    /*print_byte(myBits.otherbits);*/
+    /*print_byte(myBits.lastbit);*/
+    printf("%02x\n", (u8)myBits.bit0);
+    printf("%02x\n", (u8)myBits.bit123);
+    printf("%02x\n", (u8)myBits.otherbits);
+    printf("%02x\n", (u8)myBits.lastbit);
     return 0;
 }
