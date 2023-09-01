@@ -1,3 +1,6 @@
 [submodule "c32.topics/process-management/good-shit-bad-shit"]
 	path = c32.topics/process-management/good-shit-bad-shit
 	url = https://github.com/nkarl/proc-mgmt-good-shit-bad-shit
+[submodule "projects/wsu-cs360-systems-programming"]
+	path = projects/wsu-cs360-systems-programming
+	url = https://github.com/nkarl/wsu-cpts-360-systems-programming
