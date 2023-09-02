@@ -4,3 +4,6 @@
 [submodule "projects/wsu-cs360-systems-programming"]
 	path = projects/wsu-cs360-systems-programming
 	url = https://github.com/nkarl/wsu-cpts-360-systems-programming
+[submodule "projects/client-server"]
+	path = projects/client-server
+	url = https://github.com/nkarl/systems.client-server-in-c
