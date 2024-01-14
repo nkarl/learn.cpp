@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 
-using std::cout, std::endl, std::vector;
+using std::vector;
 
 struct Node {
-  int value; struct Node *next = nullptr;
+  int value;
+  struct Node *next = nullptr;
   Node(int value) : value(value) {}
+  Node(int value, Node *next) : value(value), next(next) {}
 };
 
 Node *makeList(vector<int> nums) {
@@ -21,41 +23,41 @@ Node *makeList(vector<int> nums) {
 
 void printList(Node *head) {
   if (head->next == nullptr) {
-    cout << head->value << endl;
+    printf("%2d\n", head->value);
     return;
   }
-  cout << head->value << ' ';
+  printf("%2d ", head->value);
   printList(head->next);
 }
 
-void postOrder(Node *head) {
+void printListPostOrder(Node *head) {
   if (head->next == nullptr) {
-    cout << head->value << ' ';
+    printf("%2d\n", head->value);
     return;
   }
-  postOrder(head->next);
-  cout << head->value << ' ';
+  printListPostOrder(head->next);
+  printf("%2d ", head->value);
 }
 
-void reverseList(Node *head) {
-  Node *newHead = head;
-  Node *nprev = nullptr, *nnext = nullptr;
-  while (newHead) {
-    nnext = newHead->next;
-    newHead->next = nprev;
-    nprev = newHead;
-    newHead = nnext;
+Node *reverseList(Node *head) {
+  Node *prev = nullptr, *curr = head;
+  while (curr) {
+    Node *next = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = next;
   }
-  //printList(nprev);
+  return prev;
 }
 
-Node *reverse(Node *head) {
-  if (head->next == nullptr)
-    return head;
-  auto newHead = reverse(head->next);
-  head->next->next = head;
-  head->next = nullptr;
-  return newHead;
+Node *reverse(Node *curr) {
+  if (curr->next == nullptr) {
+    return curr;
+  }
+  auto new_head = reverse(curr->next);
+  curr->next->next = curr;
+  curr->next = nullptr;
+  return new_head;
 }
 
 int main() {
@@ -63,8 +65,8 @@ int main() {
   Node *head = makeList(nums);
 
   printList(head);
-  // postOrder(head);
-  // reverseList(head);
+  // printListPostOrder(head);
+  // auto revr = reverseList(head);
   auto revr = reverse(head);
   printList(revr);
   return 0;

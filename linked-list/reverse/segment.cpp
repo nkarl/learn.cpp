@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-using std::cout, std::endl, std::vector;
+using std::vector;
 
 struct Node {
   int value;
@@ -23,42 +23,34 @@ Node *makeList(vector<int> nums) {
 
 void printList(Node *head) {
   if (head->next == nullptr) {
-    cout << head->value << endl;
+    printf("%2d\n", head->value);
     return;
   }
-  cout << head->value << ' ';
+  printf("%2d ", head->value);
   printList(head->next);
 }
 
-void reverseList(Node *head) {
-  Node *newHead = head;
+Node *reverseList(Node *head) {
+  Node *new_head = head;
   Node *nprev = nullptr, *nnext = nullptr;
-  while (newHead) {
-    nnext = newHead->next;
-    newHead->next = nprev;
-    nprev = newHead;
-    newHead = nnext;
+  while (new_head) {
+    nnext = new_head->next;
+    new_head->next = nprev;
+    nprev = new_head;
+    new_head = nnext;
   }
-  // printList(nprev);
+  return new_head;
 }
 
 Node *reverse(Node *head) {
-  if (head->next == nullptr)
+  if (head->next == nullptr) {
     return head;
-  auto newHead = reverse(head->next);
+  }
+  auto new_head = reverse(head->next);
   head->next->next = head;
   head->next = nullptr;
-  return newHead;
+  return new_head;
 }
-
-// Node *rev_segment(Node *const left_bound, Node *p, Node *const right_bound) {
-//   if (p == right_bound) {
-//     printf("%d ", p->value);
-//     return p;
-//   }
-//   printf("%d ", p->value);
-//   return rev_segment(left_bound, p->next, right_bound);
-// }
 
 struct Bound {
   Node *left, *right;
@@ -69,14 +61,15 @@ Node *reverse(Node *head, int left, int right, Bound *bounds) {
     bounds->right = head->next;
     return head;
   }
-  Node *newHead = reverse(head->next, left+1, right, bounds);
+  Node *new_head = reverse(head->next, left + 1, right, bounds);
   head->next->next = head;
   head->next = nullptr;
-  return newHead;
+  return new_head;
 }
 
 Node *reverseBetween(Node *head, int left, int right) {
-  Bound bounds; bounds.left = new Node(-1, head);
+  Bound bounds;
+  bounds.left = new Node(-1, head);
   Node *dummy = bounds.left;
   Node *new_tail = head;
 
@@ -92,13 +85,11 @@ Node *reverseBetween(Node *head, int left, int right) {
 }
 
 int main() {
-  // vector<int> nums = {0, 1, 2, 3, 4};
   vector<int> nums = {-3, -2, 3, -5, 3, 4, -4};
   int left = 5, right = 7;
   Node *head = makeList(nums);
-
   printList(head);
-  Node *newHead = reverseBetween(head, left, right);
-  printList(newHead);
+  Node *new_head = reverseBetween(head, left, right);
+  printList(new_head);
   return 0;
 }
