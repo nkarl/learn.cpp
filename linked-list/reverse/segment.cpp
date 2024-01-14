@@ -79,7 +79,8 @@ Node *reverseBetween(Node *head, int left, int right) {
     new_right   = new_right->next;  // new_right is old_left
   }
 
-  bounds.left->next = reverse(new_right, left, right, &bounds);
+  Node *new_left    = reverse(new_right, left, right, &bounds);
+  bounds.left->next = new_left;
   new_right->next   = bounds.right;
   return dummy->next;
 }
