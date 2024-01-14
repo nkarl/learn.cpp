@@ -1,22 +1,23 @@
 #include <iostream>
+#include <limits.h>
 #include <vector>
 
 using std::vector;
 
 struct Node {
-  int value;
+  int          value;
   struct Node *next = nullptr;
-  Node(int value) : value(value) {}
-  Node(int value, Node *next) : value(value), next(next) {}
+  Node(int value) : value(value) { }
+  Node(int value, Node *next) : value(value), next(next) { }
 };
 
 Node *makeList(vector<int> nums) {
   Node *head = new Node(nums[0]);
-  Node *n = head;
+  Node *n    = head;
   for (int i = 1; i < nums.size(); ++i) {
     Node *tmp = new Node(nums[i]);
-    n->next = tmp;
-    n = n->next;
+    n->next   = tmp;
+    n         = n->next;
   }
   return head;
 }
@@ -31,24 +32,23 @@ void printList(Node *head) {
 }
 
 Node *reverseList(Node *head) {
-  Node *new_head = head;
-  Node *nprev = nullptr, *nnext = nullptr;
+  Node *prev = nullptr, *new_head = head;
   while (new_head) {
-    nnext = new_head->next;
-    new_head->next = nprev;
-    nprev = new_head;
-    new_head = nnext;
+    Node *next     = new_head->next;
+    new_head->next = prev;
+    prev           = new_head;
+    new_head       = next;
   }
   return new_head;
 }
 
-Node *reverse(Node *head) {
-  if (head->next == nullptr) {
-    return head;
+Node *reverse(Node *curr) {
+  if (curr->next == nullptr) {
+    return curr;
   }
-  auto new_head = reverse(head->next);
-  head->next->next = head;
-  head->next = nullptr;
+  auto new_head    = reverse(curr->next);
+  curr->next->next = curr;
+  curr->next       = nullptr;
   return new_head;
 }
 
@@ -61,33 +61,33 @@ Node *reverse(Node *head, int left, int right, Bound *bounds) {
     bounds->right = head->next;
     return head;
   }
-  Node *new_head = reverse(head->next, left + 1, right, bounds);
+  Node *new_head   = reverse(head->next, left + 1, right, bounds);
   head->next->next = head;
-  head->next = nullptr;
+  head->next       = nullptr;
   return new_head;
 }
 
 Node *reverseBetween(Node *head, int left, int right) {
   Bound bounds;
-  bounds.left = new Node(-1, head);
-  Node *dummy = bounds.left;
-  Node *new_tail = head;
+  bounds.left = new Node(INT_MAX, head);
 
-  int i = 1;
-  for (; i < left; ++i) {
-    new_tail = new_tail->next;
+  Node *dummy     = bounds.left;
+  Node *new_right = head;
+
+  for (int i = 1; i < left; ++i) {
     bounds.left = bounds.left->next;
+    new_right   = new_right->next;  // new_right is old_left
   }
 
-  bounds.left->next = reverse(new_tail, left, right, &bounds);
-  new_tail->next = bounds.right;
+  bounds.left->next = reverse(new_right, left, right, &bounds);
+  new_right->next   = bounds.right;
   return dummy->next;
 }
 
 int main() {
   vector<int> nums = {-3, -2, 3, -5, 3, 4, -4};
-  int left = 5, right = 7;
-  Node *head = makeList(nums);
+  int         left = 5, right = 7;
+  Node       *head = makeList(nums);
   printList(head);
   Node *new_head = reverseBetween(head, left, right);
   printList(new_head);
