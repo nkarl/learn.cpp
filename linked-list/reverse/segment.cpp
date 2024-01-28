@@ -74,7 +74,8 @@ Node *reverseBetween(Node *head, int left, int right) {
   Node *dummy     = bounds.left;
   Node *new_right = head;
 
-  for (int i = 1; i < left; ++i) {
+  int i = 1;
+  for (; i < left; ++i) {
     bounds.left = bounds.left->next;
     new_right   = new_right->next;  // new_right is old_left
   }
