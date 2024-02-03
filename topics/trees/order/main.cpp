@@ -44,7 +44,7 @@ int main() {
   root.left = &vec[1], root.right = &vec[2];
   root.left->left = &vec[3], root.left->right = &vec[4];
   root.right->left = &vec[5], root.right->right = &vec[6];
-  order_pre(&root); cout << endl;
-  order_in(&root); cout << endl;
-  order_post(&root); cout << endl;
+  cout << "pre-order :" ; order_pre (&root) ; cout << endl ;
+  cout << "in-order  :" ; order_in  (&root) ; cout << endl ;
+  cout << "post-order:" ; order_post(&root) ; cout << endl ;
 }

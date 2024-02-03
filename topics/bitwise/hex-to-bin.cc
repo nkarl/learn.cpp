@@ -25,5 +25,5 @@ int main() {
     cout << bitstring[i];
   }
   cout << endl;
-  printf("%b", 0xff / 0xf);
+  printf("%x", 0xff / 0xf);
 }
