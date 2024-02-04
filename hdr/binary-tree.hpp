@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #include <vector>
+#include <map>
 
 struct Node {
   int val = 0;
@@ -18,6 +19,7 @@ Node *build_tree_from_postorder(std::vector<int> &inorder, std::vector<int> &pos
 
 enum ORDER { INORDER = 0, PREORDER, POSTORDER };
 
+bool compare(Node *r1, Node *r2);
 void print_tree(Node *root, int order);
 void print_preorder(Node *root);
 void print_inorder(Node *root);
