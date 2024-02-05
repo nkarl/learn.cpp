@@ -93,15 +93,15 @@ void print_preorder(Node *root) {
 void print_inorder(Node *root) {
   if (!root)
     return;
-  print_preorder(root->left);
+  print_inorder(root->left);
   cout << root->val << ' ';
-  print_preorder(root->right);
+  print_inorder(root->right);
 }
 
 void print_postorder(Node *root) {
   if (!root)
     return;
-  print_preorder(root->left);
-  print_preorder(root->right);
+  print_postorder(root->left);
+  print_postorder(root->right);
   cout << root->val << ' ';
 }

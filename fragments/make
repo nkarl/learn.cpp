@@ -1,4 +1,4 @@
-# g++ -c -g -Wall -Wextra -Wpedantic lib/binary-tree.cpp -o obj/binary-tree.o
+g++ -c -g -Wall -Wextra -Wpedantic lib/binary-tree.cpp -o obj/binary-tree.o
 g++ -g -Wall -Wextra -Wpedantic topics/trees/build/main.cpp obj/* -o topics/trees/build/main
 
 #
