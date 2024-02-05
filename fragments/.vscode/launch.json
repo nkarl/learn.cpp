@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C++ Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasenameNoExtension}",
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": true,
+      "launchCompleteCommand": "exec-run"
+    }
+  ]
+}

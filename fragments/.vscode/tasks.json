@@ -6,11 +6,9 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
-                "-Wall",
-                "-Wextra",
-                "-pedantic",
                 "-g",
                 "${file}",
+                "${workspaceRoot}/obj/*",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

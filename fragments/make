@@ -1,0 +1,6 @@
+# g++ -c -g -Wall -Wextra -Wpedantic lib/binary-tree.cpp -o obj/binary-tree.o
+g++ -g -Wall -Wextra -Wpedantic topics/trees/build/main.cpp obj/* -o topics/trees/build/main
+
+#
+# run make and then launch debugger in VSCode. It's a YUGE chore to add individual build task for each lib object.
+#

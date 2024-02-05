@@ -59,7 +59,7 @@ Node *build_tree_from_postorder(std::vector<int> &inorder,
 bool compare(Node *r1, Node *r2) {
   if (!r1 && !r2)
     return true;
-  if (!r1 && r2 || r1 && !r2)
+  if ((!r1 && r2) || (r1 && !r2))
     return false;
   if (r1->val != r2->val)
     return false;

@@ -2,10 +2,24 @@
   "configurations": {
     "Launch": {
       "adapter": "vscode-cpptools",
-      "filetypes": ["cpp", "c", "objc", "rust"],
+      "filetypes": [
+        "cpp",
+        "cc",
+        "c",
+        "objc",
+        "rust"
+      ],
       "configuration": {
+        "type": "cppdbg",
         "request": "launch",
-        "program": "a",
+        "program": "${fileDirname}/${fileBasenameNoExtension}",
+        "cwd": "${workspaceFolder}",
+        "environment": [
+          {
+            "name": "VIMRUNTIME",
+            "value": "${workspaceFolder}"
+          }
+        ],
         "MIMode": "gdb",
         "stopAtEntry": true,
         "setupCommands": [
