@@ -4,21 +4,17 @@ using namespace std;
 
 Node *build_tree_from_preorder(vector<int> &inorder, vector<int> &preorder) {
   int root = 0;
-
   std::map<int, int> mp;
   auto i = 0;
-  for (auto e : inorder)
-    mp[e] = i++;
+  for (auto e : inorder) mp[e] = i++;
 
-  const std::function<Node *(int, int)> build = [&](int left,
-                                                    int right) -> Node * {
-    if (left > right)
-      return nullptr;
+  const std::function<Node *(int, int)> build = [&]
+  (int left, int right) -> Node * {
+    if (left > right) return nullptr;
 
     Node *node = new Node(preorder[root]);
     auto r = mp[preorder[root]];/* 0;
-    for (; inorder[r] != preorder[root]; ++r)
-      ;*/
+    for (; inorder[r] != preorder[root]; ++r);*/
     ++root;
 
     node->left = build(left, r - 1);
@@ -29,23 +25,19 @@ Node *build_tree_from_preorder(vector<int> &inorder, vector<int> &preorder) {
   return build(0, preorder.size() - 1);
 }
 
-Node *build_tree_from_postorder(std::vector<int> &inorder,
-                                std::vector<int> &postorder) {
+Node *build_tree_from_postorder(std::vector<int> &inorder, std::vector<int> &postorder) {
   int root = postorder.size() - 1;
   std::map<int, int> mp;
   auto i = 0;
-  for (auto e : inorder)
-    mp[e] = i++;
+  for (auto e : inorder) mp[e] = i++;
 
-  const std::function<Node *(int, int)> build = [&](int left,
-                                                    int right) -> Node * {
-    if (left > right)
-      return nullptr;
+  const std::function<Node *(int, int)> build = [&]
+  (int left, int right) -> Node * {
+    if (left > right) return nullptr;
 
     Node *node = new Node(postorder[root]);
     auto r = mp[postorder[root]];/*0;
-    for (; inorder[r] != postorder[root]; ++r)
-      ;*/
+    for (; inorder[r] != postorder[root]; ++r);*/
     --root;
 
     node->right = build(r + 1, right);
@@ -70,15 +62,9 @@ bool compare(Node *r1, Node *r2) {
 
 void print_tree(Node *root, int order) {
   switch (order) {
-  case PREORDER:
-    print_preorder(root);
-    break;
-  case INORDER:
-    print_inorder(root);
-    break;
-  case POSTORDER:
-    print_postorder(root);
-    break;
+  case PREORDER: print_preorder(root); break;
+  case INORDER: print_inorder(root); break;
+  case POSTORDER: print_postorder(root); break;
   }
 }
 
